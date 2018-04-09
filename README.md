@@ -4,7 +4,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|message|text|null: false|
+|message|text| |
 |image|string| |
 |group_id|int|null: false, foreign_key: true|
 |user_id|int|null: false, foreign_key: true|
