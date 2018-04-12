@@ -3,24 +3,24 @@
 
   <div class="aside__header">
     <div class="aside__user">
-      <p class="aside__userName">横倉</p>
+      <p class="aside__userName">tatsuya</p>
     </div>
 
     <div class="aside__symbol">
-      <a href="" class="newGroup"><i class="fa fa-pencil-square-o"></i></a>
-      <a href="" class="editUser"><i class="fa fa-cog"></i></a>
+      <a href="" class="newGroup"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+      <a href="" class="editUser"><i class="fa fa-cog fa-lg"></i></a>
     </div>
   </div>  <!-- END aside__header -->
 
   <ul class="aside__messages">
     <li class="aside__chatBox">
-      <div class="aside__chatGroup">チャットグループ名</div>
-      <div class="aside__chatMessage">最新メッセージ</div>
+      <p class="aside__chatGroup">sample</p>
+      <p class="aside__chatMessage">fisrt message</p>
     </li>
 
     <li class="aside__chatBox">
-      <div class="aside__chatGroup">チャットグループ名</div>
-      <div class="aside__chatMessage">最新メッセージ</div>
+      <p class="aside__chatGroup">test</p>
+      <p class="aside__chatMessage">second message</p>
     </li>
   </ul>  <!-- END aside__messages-->
 
@@ -30,7 +30,7 @@
 
   <section class="main__header">
     <div class="header__description">
-      <h2 class="header__chatGroup">チャットグループ名</h2>
+      <h2 class="header__chatGroup">sample</h2>
       <div class="header__members">
         <p>Members:</p>
         <span class="header__user">yokokura</span>
@@ -64,13 +64,17 @@
   </section>  <!-- END main__chatBody -->
 
   <section class="main__footer">
-    <form class="messageForm" action="">
-      <textarea name="" id="" rows="1"></textarea>
-      <label for="messageImage">
-        <input type="file" id="messageImage" style="display:none;">
-        <i class="fa fa-image" style="display:block;"></i>
-      </label>
-      <input type="submit">
+    <form action="" method="">
+      <div class="messageForm">
+        <input type="text" class="messageBox" placeholder="type a message">
+        <label for="messageImage">
+          <input type="file" id="messageImage">
+          <i class="fa fa-image fa-lg photoIcon"></i>
+        </label>
+      </div>
+      <div class="messageSubmit">
+        <input type="submit" value="Send" class="submitBtn">
+      </div>
     </form>
   </section>  <!-- END main__footer -->
 
