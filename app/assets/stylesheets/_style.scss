@@ -1,0 +1,190 @@
+@import "./mixin/clearfix";
+
+html {
+  width: 100%;
+  height: 100%;
+  body {
+    width: 100%;
+    height: 100%;
+    @include clearfix();
+  }
+}
+#aside {
+  width: 300px;
+  height: 100%;
+  color: #fff;
+  float: left;
+  .aside__header {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    padding: 0 20px;
+    background: #253141;
+    @include clearfix();
+    .aside__user {
+      float: left;
+      .aside__userName {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .aside__symbol {
+      float: right;
+      a {
+        color: #fff;
+        padding-left: 5px;
+      }
+    }
+  }
+  .aside__messages {
+    width: 100%;
+    height: calc(100% - 100px);
+    background: #2f3e51;
+    .aside__chatBox {
+      padding: 20px;
+      cursor: pointer;
+      .aside__chatGroup {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      .aside__chatMessage {
+        font-size: 11px;
+      }
+    }
+  }
+  .aside__chatBox:hover {
+    background: #384A65;
+  }
+}
+
+#main {
+  width: calc(100% - 300px);
+  height: 100%;
+  background: blue;
+  float: left;
+  .main__header {
+    width: 100%;
+    height: 100px;
+    padding:0 40px;
+    background: #fff;
+    @include clearfix();
+    .header__description {
+      float: left;
+      h2 {
+        margin-top: 35px;
+        font-size: 20px;
+        color: #333;
+      }
+      .header__members {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #999;
+        p {
+          display: inline-block;
+        }
+        span {
+          padding-left: 10px;
+        }
+      }
+    }
+    .haeder__edit {
+      float: right;
+      height: 40px;
+      line-height: 36px;
+      margin-top: 28px;
+      padding: 0 20px;
+      border: 2px solid #2cb0fb;
+      a {
+        color: #2cb0fb;
+        font-size: 14px;
+      }
+    }
+  }
+  .main__chatBody {
+    width: 100%;
+    height: calc(100% - 190px);
+    padding: 0 40px;
+    border-top: 1px solid #eee;
+    background: #fafafa;
+    .main__chatWrap {
+      margin-top: 46px;
+      .main__chatBox {
+        margin-bottom: 40px;
+        .chatBox__user {
+          margin-bottom: 10px;
+          .userName {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            color: #434A54;
+          }
+          .time {
+            font-size: 12px;
+            color: #999;
+            padding-left: 10px;
+          }
+        }
+        .chatBox__message {
+          font-size: 14px;
+          color: #434A54;
+        }
+      }
+    }
+  }
+
+  .main__footer {
+    width: 100%;
+    height: 90px;
+    padding:0 40px;
+    background: #ddd;
+    form {
+      width: 100%;
+      min-width: 600px;
+      @include clearfix();
+      .messageForm {
+        float: left;
+        width: calc(100% - 115px);
+        padding: 20px 0;
+        position: relative;
+        .messageBox {
+          display: inline-block;
+          width: 100%;
+          height: 50px;
+          padding-left: 10px;
+          resize: none;
+          border: none;
+        }
+        label #messageImage {
+          display: none;
+        }
+        label .photoIcon {
+          display: inline-block;
+          cursor: pointer;
+          position: absolute;
+          top: 38px;
+          right: 20px;
+        }
+      }
+      .messageSubmit {
+        float: left;
+        white-space: nowrap;
+        .submitBtn {
+          display: block;
+          width: 100px;
+          height: 50px;
+          margin: 20px 0 20px 15px;
+          background: #2cb0fb;
+          color: #fff;
+          border-style: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
