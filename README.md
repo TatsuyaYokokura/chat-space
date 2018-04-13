@@ -6,8 +6,8 @@
 |------|----|-------|
 |message|text| |
 |image|string| |
-|group_id|int|null: false, foreign_key: true|
-|user_id|int|null: false, foreign_key: true|
+|group|references|null: false|
+|user|references|null: false|
 
 ### Association
 - belongs_to :group
@@ -18,7 +18,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|index: true, null: false, unique: true|
+|name|string|index: true, null: false|
 |email|string|null: false|
 |password|string|null: false|
 
@@ -44,8 +44,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
