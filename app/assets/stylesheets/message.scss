@@ -1,0 +1,190 @@
+@import "./mixin/clearfix";
+
+html {
+  width: 100%;
+  height: 100vh;
+  body {
+    width: 100%;
+    height: 100vh;
+    @include clearfix();
+  }
+}
+.aside {
+  width: 300px;
+  height: 100vh;
+  color: #fff;
+  float: left;
+  &__header {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    padding: 0 20px;
+    background: #253141;
+    @include clearfix();
+    &__user {
+      float: left;
+      &__name {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    &__symbol {
+      float: right;
+      a {
+        color: white;
+        padding-left: 5px;
+      }
+    }
+  }
+  &__messages {
+    width: 100%;
+    height: calc(100vh - 100px);
+    overflow: scroll;
+    background: #2f3e51;
+    &__chat-box {
+      padding: 20px;
+      cursor: pointer;
+      .chat-group {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      .chat-message {
+        font-size: 11px;
+      }
+    }
+    &__chat-box:hover {
+    background: #384A65;
+    }
+  }
+}
+
+.main {
+  width: calc(100% - 300px);
+  height: 100vh;
+  float: left;
+
+  &__header {
+    width: 100%;
+    height: 100px;
+    min-width: 600px;
+    padding:0 40px;
+    background: #fff;
+    @include clearfix();
+    &__description {
+      float: left;
+      .group-name {
+        margin-top: 35px;
+        font-size: 20px;
+        color: #333;
+      }
+      .members {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #999;
+        p {
+          display: inline-block;
+        }
+        &__user {
+          padding-left: 10px;
+        }
+      }
+    }
+    &__edit {
+      float: right;
+      height: 40px;
+      line-height: 36px;
+      margin-top: 28px;
+      padding: 0 20px;
+      border: 2px solid #2cb0fb;
+      a {
+        color: #2cb0fb;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .main__body {
+    width: 100%;
+    min-width: 600px;
+    height: calc(100vh - 190px);
+    padding: 0 40px;
+    border-top: 1px solid #eee;
+    background: #fafafa;
+    overflow: scroll;
+    &__chat-wrap {
+      margin-top: 46px;
+      .chat-box {
+        margin-bottom: 40px;
+        &__user {
+          margin-bottom: 10px;
+          &--name {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+            color: #434A54;
+          }
+          &--time {
+            font-size: 12px;
+            color: #999;
+            padding-left: 10px;
+          }
+        }
+        &__message {
+          font-size: 14px;
+          color: #434A54;
+        }
+      }
+    }
+  }
+
+  .main__footer {
+    width: 100%;
+    min-width: 600px;
+    height: 90px;
+    padding:0 40px;
+    background: #ddd;
+    form {
+      width: 100%;
+      min-width: 600px;
+      @include clearfix();
+      .footer__form {
+        float: left;
+        width: calc(100% - 115px);
+        padding: 20px 0;
+        position: relative;
+        .message-box {
+          display: inline-block;
+          width: 100%;
+          height: 50px;
+          padding-left: 10px;
+          resize: none;
+          border: none;
+        }
+        label #message-image {
+          display: none;
+        }
+        label .photo-icon {
+          display: inline-block;
+          cursor: pointer;
+          position: absolute;
+          top: 38px;
+          right: 20px;
+        }
+      }
+      .message-submit {
+        float: left;
+        white-space: nowrap;
+        .submit-btn {
+          display: block;
+          width: 100px;
+          height: 50px;
+          margin: 20px 0 20px 15px;
+          background: #2cb0fb;
+          color: #fff;
+          border-style: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
