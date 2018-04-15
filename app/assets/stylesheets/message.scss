@@ -38,7 +38,7 @@ html {
   }
   &__messages {
     width: 100%;
-    height: calc(100% - 100px);
+    height: calc(100vh - 100px);
     overflow: scroll;
     background: #2f3e51;
     &__chat-box {
@@ -106,7 +106,7 @@ html {
   .main__body {
     width: 100%;
     min-width: 600px;
-    height: calc(100% - 190px);
+    height: calc(100vh - 190px);
     padding: 0 40px;
     border-top: 1px solid #eee;
     background: #fafafa;
