@@ -11,11 +11,11 @@
           .field-label
             = f.label :name
           .field-input
-            = f.text_field :name, autofocus: true
+            = f.text_field :name, autofocus: true, required: true
         .field
           .field-label
             = f.label :email
           .field-input
-            = f.email_field :email
+            = f.email_field :email, required: true
         .actions
           = f.submit "Update", class: 'btn'

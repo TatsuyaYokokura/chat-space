@@ -3,7 +3,7 @@
     .aside__header__user
       %p.aside__header__user__name= current_user.name
     .aside__header__symbol
-      %a.new-group{:href => ""}
+      %a.new-group{href:  ""}
         %i.fa.fa-pencil-square-o.fa-lg
       = link_to edit_user_path(current_user.id), class: 'edit-user' do
         %i.fa.fa-cog.fa-lg
@@ -26,7 +26,7 @@
         %span.members__user aatsuya
     / END header__description
     .main__header__edit
-      %a.header__edit--btn{:href => ""} Edit
+      %a.header__edit--btn{href: ""} Edit
     / END haeder__edit
   / END main__header
   %section.main__body
@@ -43,12 +43,12 @@
         %p.chat-box__message チャット書き込み
   / END main__chatBody
   %section.main__footer
-    %form{:action => "", :method => ""}
+    %form{action: "", method: ""}
       .footer__form
-        %input.message-box{:placeholder => "type a message", :type => "text"}/
-        %label{:for => "message-image"}
-          %input#message-image{:type => "file"}/
+        %input.message-box{placeholder: "type a message", type: "text"}/
+        %label{for: "message-image"}
+          %input#message-image{type: "file"}/
           %i.fa.fa-image.fa-lg.photo-icon
       .message-submit
-        %input.submit-btn{:type => "submit", :value => "Send"}/
+        %input.submit-btn{type: "submit", value: "Send"}/
   / END main__footer

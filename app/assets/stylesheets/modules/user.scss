@@ -1,3 +1,5 @@
+@import "./mixin/clearfix";
+
 .account-page {
   .account-page__inner {
     width: 980px;
@@ -6,15 +8,11 @@
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
+    @include clearfix();
 
     .account-page__inner--left, .account-page__inner--right {
       float: left;
       width: 50%;
-    }
-    &:after {
-      clear: both;
-      content: "";
-      display: block;
     }
   }
 
