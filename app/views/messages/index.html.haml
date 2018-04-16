@@ -1,0 +1,54 @@
+%aside.aside
+  .aside__header
+    .aside__header__user
+      %p.aside__header__user__name= current_user.name
+    .aside__header__symbol
+      %a.new-group{:href => ""}
+        %i.fa.fa-pencil-square-o.fa-lg
+      = link_to edit_user_registration_path, class: 'edit-user' do
+        %i.fa.fa-cog.fa-lg
+  / END aside__header
+  %ul.aside__messages
+    %li.aside__messages__chat-box
+      %p.chat-group sample
+      %p.chat-message fisrt message
+    %li.aside__messages__chat-box
+      %p.chat-group test
+      %p.chat-message second message
+  / END aside__messages
+%main.main
+  %section.main__header
+    .main__header__description
+      %h2.group-name sample
+      .members
+        %p Members:
+        %span.members__user yokokura
+        %span.members__user aatsuya
+    / END header__description
+    .main__header__edit
+      %a.header__edit--btn{:href => ""} Edit
+    / END haeder__edit
+  / END main__header
+  %section.main__body
+    %ul.main__body__chat-wrap
+      %li.chat-box
+        .chat-box__user
+          %p.chat-box__user--name tatsuya
+          %span.chat-box__user--time 2018/04/11 20:00:05
+        %p.chat-box__message チャット書き込み
+      %li.chat-box
+        .chat-box__user
+          %p.chat-box__user--name tatsuya
+          %span.chat-box__user--time 2018/04/11 20:00:05
+        %p.chat-box__message チャット書き込み
+  / END main__chatBody
+  %section.main__footer
+    %form{:action => "", :method => ""}
+      .footer__form
+        %input.message-box{:placeholder => "type a message", :type => "text"}/
+        %label{:for => "message-image"}
+          %input#message-image{:type => "file"}/
+          %i.fa.fa-image.fa-lg.photo-icon
+      .message-submit
+        %input.submit-btn{:type => "submit", :value => "Send"}/
+  / END main__footer
