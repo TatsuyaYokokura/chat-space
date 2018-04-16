@@ -5,7 +5,7 @@
     .aside__header__symbol
       %a.new-group{:href => ""}
         %i.fa.fa-pencil-square-o.fa-lg
-      = link_to edit_user_registration_path, class: 'edit-user' do
+      = link_to edit_user_path(current_user.id), class: 'edit-user' do
         %i.fa.fa-cog.fa-lg
   / END aside__header
   %ul.aside__messages
