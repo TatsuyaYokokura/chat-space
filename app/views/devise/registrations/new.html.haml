@@ -11,22 +11,22 @@
           .field-label
             = f.label :name
           .field-input
-            = f.text_field :name, autofocus: true
+            = f.text_field :name, autofocus: true, required: true
         .field
           .field-label
             = f.label :email
           .field-input
-            = f.email_field :email
+            = f.email_field :email, required: true
         .field
           .field-label
             = f.label :password
             %i (英数字8文字以上)
           .field-input
-            = f.password_field :password, autocomplete: "off"
+            = f.password_field :password, autocomplete: "off", required: true
         .field
           .field-label
             = f.label :password_confirmation
           .field-input
-            = f.password_field :password_confirmation, autocomplete: "off"
+            = f.password_field :password_confirmation, autocomplete: "off", required: true
         .actions
           = f.submit "Create Account", class: 'btn'
