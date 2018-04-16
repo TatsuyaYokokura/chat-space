@@ -6,10 +6,9 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      flash[:notice] = '変更されました'
-      redirect_to root_path
+      redirect_to root_path, notice: '変更されました'
     else
-      flash[:alert] = '変更できませんでした'
+      flash.now[:alert] = '変更できませんでした'
       render :edit
     end
   end
