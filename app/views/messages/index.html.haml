@@ -9,12 +9,12 @@
         %i.fa.fa-cog.fa-lg
   / END aside__header
   %ul.aside__messages
-    %li.aside__messages__chat-box
-      %p.chat-group sample
-      %p.chat-message fisrt message
-    %li.aside__messages__chat-box
-      %p.chat-group test
-      %p.chat-message second message
+    - @groups.each do |group|
+      %li.aside__messages__chat-box
+        %p.chat-group
+          = group.name
+        %p.chat-message
+          fisrt message
   / END aside__messages
 %main.main
   %section.main__header
