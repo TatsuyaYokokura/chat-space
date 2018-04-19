@@ -6,7 +6,7 @@
     margin: 60px auto;
     padding: 60px;
     background-color: white;
-    border: 1px solid #ddd;
+    border: 1px solid $light_gray;
     border-radius: 5px;
     @include clearfix();
 
@@ -28,7 +28,7 @@
         display: block;
         width: 60px;
         margin-top: 5px;
-        border-bottom: 1px solid #38aef0;
+        border-bottom: 1px solid $light_blue;
       }
     }
 
@@ -84,7 +84,7 @@
     float: left;
     margin-top: 20px;
     color: white;
-    background-color: #38aef0;
+    background-color: $light_blue;
   }
 
   .field-label {
@@ -116,7 +116,7 @@
 #error_explanation {
   margin: 20px 0;
   padding: 20px 30px;
-  border: 1px solid #ddd;
+  border: 1px solid $light_gray;
   border-radius: 2px;
 
   h2 {
