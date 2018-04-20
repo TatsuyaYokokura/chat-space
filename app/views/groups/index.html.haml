@@ -1,0 +1,21 @@
+%aside.aside
+  = render partial: 'modules/aside'
+
+%main.main
+  %section.main__header
+    .main__header__description
+      - if @group.present?
+        %h2.group-name
+          = @group.name
+        .members
+          %p Members:
+          - @users.each do |user|
+            %span.members__user
+              = user.name
+    / END header__description
+    - if @group.present?
+      .main__header__edit
+        = link_to 'Edit', edit_group_path(@group.id), class: 'header__edit--btn'
+    / END haeder__edit
+  / END main__header
+  = render partial: 'modules/index'
