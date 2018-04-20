@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-  before_action :move_to_login, only: :new
+  before_action :unassign_user, only: :edit
 
   def new
     @group = Group.new
@@ -32,8 +32,10 @@ class GroupsController < ApplicationController
     @group.users << current_user
   end
 
-  def move_to_login
-    redirect_to controller: 'devise/sessions#new', action: 'new' unless user_signed_in?
+  def unassign_user
+    if GroupUser.where(user_id: current_user.id, group_id: params[:id]) == nil
+      redirect_to controller: 'devise/sessions#new', action: 'new'
+    end
   end
 
 end
