@@ -1,39 +1,19 @@
 %aside.aside
-  = render partial: 'groups/index'
-  / END aside__messages
+  = render partial: 'modules/aside'
+
 %main.main
   %section.main__header
     .main__header__description
-      %h2.group-name sample
+      %h2.group-name
+        = @group.name
       .members
         %p Members:
-        %span.members__user yokokura
-        %span.members__user aatsuya
+        - @users.each do |user|
+          %span.members__user
+            = user.name
     / END header__description
     .main__header__edit
-      %a.header__edit--btn{href: ""} Edit
+      = link_to 'Edit', edit_group_path(@group.id), class: 'header__edit--btn'
     / END haeder__edit
   / END main__header
-  %section.main__body
-    %ul.main__body__chat-wrap
-      %li.chat-box
-        .chat-box__user
-          %p.chat-box__user--name tatsuya
-          %span.chat-box__user--time 2018/04/11 20:00:05
-        %p.chat-box__message チャット書き込み
-      %li.chat-box
-        .chat-box__user
-          %p.chat-box__user--name tatsuya
-          %span.chat-box__user--time 2018/04/11 20:00:05
-        %p.chat-box__message チャット書き込み
-  / END main__chatBody
-  %section.main__footer
-    %form{action: "", method: ""}
-      .footer__form
-        %input.message-box{placeholder: "type a message", type: "text"}/
-        %label{for: "message-image"}
-          %input#message-image{type: "file"}/
-          %i.fa.fa-image.fa-lg.photo-icon
-      .message-submit
-        %input.submit-btn{type: "submit", value: "Send"}/
-  / END main__footer
+  = render partial: 'modules/index'
