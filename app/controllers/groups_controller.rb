@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
 
+  before_action :move_to_login, only: :new
+
   def new
     @group = Group.new
     choose_users
@@ -28,6 +30,10 @@ class GroupsController < ApplicationController
 
   def choose_users
     @group.users << current_user
+  end
+
+  def move_to_login
+    redirect_to controller: 'devise/sessions#new', action: 'new' unless user_signed_in?
   end
 
 end
