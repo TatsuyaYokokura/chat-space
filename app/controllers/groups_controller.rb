@@ -2,6 +2,10 @@ class GroupsController < ApplicationController
 
   before_action :restrict_user, only: :edit
 
+  def index
+    @groups = current_user.groups
+  end
+
   def new
     @group = Group.new
     @group.users << current_user
