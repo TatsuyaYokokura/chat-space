@@ -1,10 +1,10 @@
 class GroupsController < ApplicationController
 
-  before_action :unassign_user, only: :edit
+  before_action :restrict_user, only: :edit
 
   def new
     @group = Group.new
-    choose_users
+    @group.users << current_user
   end
 
   def create
@@ -18,6 +18,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @group = Group.find(params[:id])
   end
 
   def update
@@ -28,12 +29,8 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, { user_ids: [] })
   end
 
-  def choose_users
-    @group.users << current_user
-  end
-
-  def unassign_user
-    if GroupUser.where(user_id: current_user.id, group_id: params[:id]) == nil
+  def restrict_user
+    if GroupUser.where(user_id: current_user.id, group_id: params[:id]).nil?
       redirect_to controller: 'devise/sessions#new', action: 'new'
     end
   end
