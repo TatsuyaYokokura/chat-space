@@ -58,5 +58,5 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'pry-rails'
 gem 'carrierwave'
-gem 'rmagick', require: 'RMagick'
+gem 'mini_magick'
 
