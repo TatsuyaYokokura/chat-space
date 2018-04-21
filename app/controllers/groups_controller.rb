@@ -4,16 +4,18 @@ class GroupsController < ApplicationController
 
   def index
     @groups = current_user.groups
-    @group = Group.find(params[:group_id]) if params[:group_id].present?
+    # @group = Group.specify(params[:group_id])
   end
 
   def new
     @group = Group.new
     @group.users << current_user
+    @users_except_from_currentuser = User.except_from_currentuser(current_user)
   end
 
   def create
     @group = Group.new(group_params)
+    @group.users << current_user
     if @group.save
       redirect_to root_path, notice: 'グループを作成しました'
     else
@@ -24,9 +26,18 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
+    @users_except_from_currentuser = User.except_from_currentuser(current_user)
   end
 
   def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      @group.users << current_user
+      redirect_to group_messages_path(@group), notice: 'グループを作成しました'
+    else
+      flash.now[:alert] = 'グループを作成できませんでした'
+      render :new
+    end
   end
 
   private
@@ -35,9 +46,6 @@ class GroupsController < ApplicationController
   end
 
   def restrict_user
-    if GroupUser.where(user_id: current_user.id, group_id: params[:id]).nil?
-      redirect_to controller: 'devise/sessions#new', action: 'new'
-    end
+    redirect_to root_path unless current_user.groups.find_by(id: params[:id])
   end
-
 end
