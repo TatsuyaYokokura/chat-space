@@ -10,7 +10,7 @@
 / END aside__header
 %ul.aside__messages
   - @groups.each do |group|
-    = link_to group_messages_path(group.id) do
+    = link_to group_messages_path(group) do
       %li.aside__messages__chat-box
         %p.chat-group
           = group.name
