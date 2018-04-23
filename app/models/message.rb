@@ -1,4 +1,4 @@
 class Message < ApplicationRecord
-  belongs_to :user
+  belongs_current_userto :user
   belongs_to :group
 end
