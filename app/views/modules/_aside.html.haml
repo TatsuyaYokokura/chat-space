@@ -5,12 +5,12 @@
   .aside__header__symbol
     = link_to new_group_path, class: 'new-group' do
       %i.fa.fa-pencil-square-o.fa-lg
-    = link_to edit_user_path(current_user.id), class: 'edit-user' do
+    = link_to edit_user_path(current_user), class: 'edit-user' do
       %i.fa.fa-cog.fa-lg
 / END aside__header
 %ul.aside__messages
   - @groups.each do |group|
-    = link_to group_messages_path(group.id) do
+    = link_to group_messages_path(group) do
       %li.aside__messages__chat-box
         %p.chat-group
           = group.name
