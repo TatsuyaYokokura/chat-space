@@ -1,0 +1,19 @@
+%aside.aside
+  = render partial: 'modules/aside'
+
+%main.main
+  %section.main__header
+    .main__header__description
+      / - if @group.present?
+      /   %h2.group-name
+      /     = @group.name
+      / - if @group.present?
+      /   .main__header__edit
+      /     = link_to 'Edit', edit_group_path(@group.id), class: 'header__edit--btn'
+
+  %section.main__body
+
+  %section.main__footer
+
+  / END main__footer
+
