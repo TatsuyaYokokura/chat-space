@@ -5,7 +5,6 @@ class GroupsController < ApplicationController
 
   def index
     @groups = current_user.groups
-    # @group = Group.specify(params[:group_id])
   end
 
   def new
