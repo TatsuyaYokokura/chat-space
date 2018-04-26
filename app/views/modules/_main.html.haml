@@ -14,7 +14,7 @@
 %section.main__footer
   = form_for [@group, @message] do |f|
     .footer__form
-      = f.text_field :message, class: 'message-box', placeholder: 'type a message', required: true
+      = f.text_field :message, class: 'message-box', placeholder: 'type a message'
       = f.label :image do
         = f.file_field :image, class: 'hidden'
         = fa_icon 'image lg', class: 'photo-icon'
