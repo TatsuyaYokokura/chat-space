@@ -11,11 +11,10 @@ class MessagesController < ApplicationController
 
   def create
     @message = @group.messages.new(message_params)
-    if @message.message?
-      @message.save
+    if @message.save
       redirect_to group_messages_path(@group)
     else
-      redirect_to group_messages_path(@group), alert: 'メッセージを入力してください'
+      flash.now[:alert] = 'メッセージを入力してください'
     end
   end
 
