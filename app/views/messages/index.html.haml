@@ -28,6 +28,6 @@
               = message.created_at
           %p.chat-box__message
             = message.message
-          = image_tag message.image.url if message.image.present?
+          = image_tag message.image.url if message.image?
 
   = render partial: 'modules/main'
