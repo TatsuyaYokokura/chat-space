@@ -18,6 +18,8 @@
       = f.label :image do
         = f.file_field :image, class: 'hidden'
         = fa_icon 'image lg', class: 'photo-icon'
+      = f.hidden_field :user_id, value: current_user.id
+      = f.hidden_field :group_id, value: @group.id
     .message-submit
       = f.submit 'Send', class: 'submit-btn'
   / END main__footer

@@ -31,7 +31,7 @@
               - if message.message?
                 = message.message
               - else
-                .chat-box__message__alert-font ※メッセージはありません
+                .chat-box__message__alert-font
             = image_tag message.image.url if message.image?
 
   = render partial: 'modules/main'
