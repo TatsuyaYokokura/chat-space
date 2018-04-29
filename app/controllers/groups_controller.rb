@@ -5,7 +5,6 @@ class GroupsController < ApplicationController
 
   def index
     @groups = current_user.groups
-    # @group = Group.specify(params[:group_id])
   end
 
   def new
@@ -48,4 +47,5 @@ class GroupsController < ApplicationController
   def specify_which_group_editing
     @group = Group.find(params[:id])
   end
+
 end
