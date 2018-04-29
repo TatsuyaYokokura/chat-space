@@ -19,7 +19,7 @@
 
   %section.main__body
     %ul.main__body__chat-wrap
-      - if @messages.present?
+      - if @messages
         - @messages.each do |message|
           %li.chat-box
             .chat-box__user

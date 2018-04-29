@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
 
   def setup_group
     @group = Group.find(params[:group_id])
-    @groups = current_user.groups    # _aside.hmtlでも使用するためのインスタンス変数の設定
+    @groups = current_user.groups    # _aside.htmlでも使用するためのインスタンス変数の設定
     @current_group_users = @group.users
     @messages = @group.messages
   end
