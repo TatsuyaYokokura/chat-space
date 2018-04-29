@@ -19,18 +19,19 @@
 
   %section.main__body
     %ul.main__body__chat-wrap
-      - @messages.each do |message|
-        %li.chat-box
-          .chat-box__user
-            %p.chat-box__user--name
-              = message.user.name
-            %span.chat-box__user--time
-              = message.created_at
-          %p.chat-box__message
-            - if message.message?
-              = message.message
-            - else
-              .chat-box__message__alert-font ※メッセージはありません
-          = image_tag message.image.url if message.image?
+      - if @messages.present?
+        - @messages.each do |message|
+          %li.chat-box
+            .chat-box__user
+              %p.chat-box__user--name
+                = message.user.name
+              %span.chat-box__user--time
+                = message.created_at
+            %p.chat-box__message
+              - if message.message?
+                = message.message
+              - else
+                .chat-box__message__alert-font ※メッセージはありません
+            = image_tag message.image.url if message.image?
 
   = render partial: 'modules/main'
