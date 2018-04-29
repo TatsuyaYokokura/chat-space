@@ -27,7 +27,10 @@
             %span.chat-box__user--time
               = message.created_at
           %p.chat-box__message
-            = message.message
+            - if message.message?
+              = message.message
+            - else
+              .chat-box__message__alert-font ※メッセージはありません
           = image_tag message.image.url if message.image?
 
   = render partial: 'modules/main'
