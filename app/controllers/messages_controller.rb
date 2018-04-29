@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_messages_path(@group)
     else
-      redirect_to group_messages_path(@group), alert: 'メッセージを入力してください'
+      redirect_to group_messages_path(@group), alert: 'メッセージもしくは写真を登録してください'
     end
   end
 
