@@ -1,5 +1,5 @@
 %section.main__footer
-  = form_for [@group, @message] do |f|
+  = form_for [@group, @message], html: {id: 'message-form'} do |f|
     .footer__form
       = f.text_field :message, class: 'message-box', placeholder: 'type a message'
       = f.label :image do
