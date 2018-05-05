@@ -1,10 +1,6 @@
 $(function() {
   function buildHTML(message) {
-    if (message.image_url == null) {
-      var image = "";
-    } else {
-      var image = message.image_url
-    }
+    message.image_url == null ? var image = "" : var image = message.image_url;
     var html =
       `<li class="chat-box">
         <div class="chat-box__user">
