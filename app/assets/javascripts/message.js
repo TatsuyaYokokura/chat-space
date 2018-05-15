@@ -1,6 +1,10 @@
 $(function() {
   function buildHTML(message) {
-    message.image_url == null ? var image = "" : var image = message.image_url;
+    if (message.image_url === null) {
+      var image = "";
+    } else {
+      var image = message.image_url;
+    }
     var html =
       `<li class="chat-box">
         <div class="chat-box__user">
@@ -13,7 +17,7 @@ $(function() {
       return html;
     }
   $('#message-form').on('submit', function(e) {
-    e.preventDefault();   //同期通信するフォームをすトプしている
+    e.preventDefault();   //同期通信するフォームをストップしている
     var formData = new FormData(this);
     var url = $(this).attr('action');
     $.ajax({
@@ -27,7 +31,7 @@ $(function() {
     .done(function(data) {
       var html = buildHTML(data);
       $('.main__body__chat-wrap').append(html);
-      $('.main__body').animate({scrollTop: $('.chat-box:last').offset().top});
+      $('.main__body').animate({scrollTop: $('.chat-box:last').scrollHeight});
       $('.message-box').val("");
       $('.submit-btn').prop('disabled', false);
     })
