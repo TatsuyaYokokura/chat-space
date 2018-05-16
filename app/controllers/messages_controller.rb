@@ -9,13 +9,15 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-    respond_to do |format|
-      if @message.save
+    if @message.save
+      respond_to do |format|
         format.html { redirect_to group_messages_path(@group) }
         # jsが動いてない時はhtmlが動く
         format.json
-      else
-        flash.now[:alert] = 'メッセージはありません'
+      end
+    else
+      flash.now[:alert] = 'メッセージはありません'
+      respond_to do |format|
         format.html { render action: 'index' }
         format.json
       end
