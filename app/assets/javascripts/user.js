@@ -20,7 +20,7 @@ $(function() {
 
   $(".chat-group-form__input").on("keyup", function() {
     var input = $("#user-search-field").val();
-    if (input === "") {
+    if (!input) {
       return false;
     };
     $.ajax({
@@ -45,6 +45,7 @@ $(function() {
   });
 
   $('#user-search-result').on('click', '.user-search-add', function() {
+    console.log('ok');
     var id = $(this).data('user-id');
     var name = $(this).data('user-name');
     var html = addHiddenField(id, name);

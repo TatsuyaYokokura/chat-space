@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
 
   before_action :restrict_user, only: :edit
   before_action :specify_which_group_editing, only: [:edit, :update]
+  before_action :show_users, only: [:new, :edit]
 
   def index
     @groups = current_user.groups
@@ -46,6 +47,10 @@ class GroupsController < ApplicationController
 
   def specify_which_group_editing
     @group = Group.find(params[:id])
+  end
+
+  def show_users
+    @users = User.all
   end
 
 end
