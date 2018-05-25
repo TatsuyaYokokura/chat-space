@@ -5,15 +5,26 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.includes(:user)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to group_messages_path(@group)
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(@group) }
+        # jsが動いてない時はhtmlが動く
+        format.json
+      end
     else
-      flash.now[:alert] = 'メッセージもしくは写真を登録してください'
-      render :index
+      flash.now[:alert] = 'メッセージはありません'
+      respond_to do |format|
+        format.html { render action: 'index' }
+        format.json
+      end
     end
   end
 
