@@ -14,7 +14,6 @@ class GroupsController < ApplicationController
   end
 
   def create
-    binding.pry
     @group = Group.new(group_params)
     if @group.save
       redirect_to root_path, notice: 'グループを作成しました'
@@ -31,6 +30,7 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
+      binding.pry
       redirect_to group_messages_path(@group), notice: 'グループを作成しました'
     else
       flash.now[:alert] = 'グループを作成できませんでした'

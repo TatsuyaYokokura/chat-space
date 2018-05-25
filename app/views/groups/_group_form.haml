@@ -22,7 +22,7 @@
         - @users.each do |user|
           .chat-group-user.clearfix
             %p.chat-group-user__name= user.name
-            %a.user-search-add.chat-group-user__btn.chat-group-user__btn--add{ 'data-user-id': 'user-id', 'data-user-name': 'user-name' } 追加
+            %a.user-search-add.chat-group-user__btn.chat-group-user__btn--add{ 'data-user-id': "#{user.id}", 'data-user-name': "#{user.name}" } 追加
   .chat-group-form__field
     .chat-group-form__field--left
       = f.label :'チャットメンバー', class: 'chat-group-form__label'

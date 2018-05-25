@@ -45,6 +45,8 @@ $(function() {
   });
 
   $('#user-search-result').on('click', '.user-search-add', function() {
+    console.log(this);
+    
     var id = $(this).data('user-id');
     var name = $(this).data('user-name');
     var html = addHiddenField(id, name);

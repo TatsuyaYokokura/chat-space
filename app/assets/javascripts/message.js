@@ -13,24 +13,24 @@ $(function() {
       return html;
     }
 
-  var reload = function() {
-    $.ajax({
-      url: location.href,
-      type: 'GET',
-      dataType: 'json'
-    })
-    .done(function(messages) {
-      var html = '';
-      messages.forEach(function(message) {
-        html += buildHTML(message)
-      });
-      $('.main__body__chat-wrap').append(html);
-      $('.main__body').animate({scrollTop: $('.main__body__chat-wrap').height()});
-    })
-    .fail(function() {
-      alert('error');
-    })
-  };
+  // var reload = function() {
+  //   $.ajax({
+  //     url: location.href,
+  //     type: 'GET',
+  //     dataType: 'json'
+  //   })
+  //   .done(function(messages) {
+  //     var html = '';
+  //     messages.forEach(function(message) {
+  //       html += buildHTML(message)
+  //     });
+  //     $('.main__body__chat-wrap').append(html);
+  //     $('.main__body').animate({scrollTop: $('.main__body__chat-wrap').height()});
+  //   })
+  //   .fail(function() {
+  //     alert('error');
+  //   })
+  // };
 
   $('#message-form').on('submit', function(e) {
     e.preventDefault();   //同期通信するフォームをストップしている
@@ -52,8 +52,29 @@ $(function() {
       $('.submit-btn').prop('disabled', false);
     })
     .fail(function() {
-      alert('error');
+      alert('errors');
     })
+  });
+
+    setInterval(function() {
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        dataType: 'json'
+      })
+      .done(function(data) {
+        var id = $('').data('')
+        var html = buildHTML(messages);
+        messages.forEach(function(message) {
+          html += buildHTML(message)
+        });
+      })
+      .fail(function(data) {
+        alert('error');
+      })
+    } else {
+
+    }
   });
 
   // setInterval(reload, 5000);
