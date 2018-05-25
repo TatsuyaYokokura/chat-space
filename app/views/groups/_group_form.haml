@@ -28,7 +28,8 @@
       = f.label :'チャットメンバー', class: 'chat-group-form__label'
     .chat-group-form__field--right
       .js-add-user
-        - @group.users.each do |user|
+        / - binding.pry
+        - @group_users.each do |user|
           %input{ type: 'hidden', name: 'group[user_ids][]', value: "#{user.id}" }
           .chat-group-user.clearfix
             %p.chat-group-user__name= user.name

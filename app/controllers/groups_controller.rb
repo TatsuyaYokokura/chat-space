@@ -2,18 +2,19 @@ class GroupsController < ApplicationController
 
   before_action :restrict_user, only: :edit
   before_action :specify_which_group_editing, only: [:edit, :update]
-  before_action :show_users, only: [:new, :edit]
+  before_action :fetch_all_users, only: [:new, :edit]
 
   def index
     @groups = current_user.groups
   end
 
   def new
-    @group = Group.new
+    set_gruop
     @users_except_from_currentuser = User.except_from_currentuser(current_user)
   end
 
   def create
+    binding.pry
     @group = Group.new(group_params)
     if @group.save
       redirect_to root_path, notice: 'グループを作成しました'
@@ -24,6 +25,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    set_gruop
     @users_except_from_currentuser = User.except_from_currentuser(current_user)
   end
 
@@ -49,8 +51,13 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
-  def show_users
+  def fetch_all_users
     @users = User.all
+  end
+
+  def set_gruop
+    @group = Group.new
+    @group_users = @group.users.includes(:users)
   end
 
 end
