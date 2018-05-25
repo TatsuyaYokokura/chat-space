@@ -13,16 +13,34 @@ $(function() {
       return html;
     }
 
+  var reload = function() {
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      dataType: 'json'
+    })
+    .done(function(messages) {
+      var html = '';
+      messages.forEach(function(message) {
+        html += buildHTML(message)
+      });
+      $('.main__body__chat-wrap').append(html);
+      $('.main__body').animate({scrollTop: $('.main__body__chat-wrap').height()});
+    })
+    .fail(function() {
+      alert('error');
+    })
+  };
+
   $('#message-form').on('submit', function(e) {
     e.preventDefault();   //同期通信するフォームをストップしている
     var formData = new FormData(this);
-    console.log(formData);
     var url = $(this).attr('action');
     $.ajax({
       url: url,   //どこのアクションに情報を飛ばしたいかを指定していあげる。この3つは基本的にいれる必要がある
       type: "POST",
       data: formData,   //送りたいデータの内容
-      dataType: 'json',   //この3つは基本的にいれる必要がある（もしくはjson形式をリクエストする方法もある）
+      dataType: 'json',  //この3つは基本的にいれる必要がある（もしくはjson形式をリクエストする方法もある）
       processData: false,
       contentType: false
     })
@@ -38,4 +56,5 @@ $(function() {
     })
   });
 
+  // setInterval(reload, 5000);
 });
