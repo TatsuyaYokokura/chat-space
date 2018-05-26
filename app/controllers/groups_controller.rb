@@ -9,7 +9,8 @@ class GroupsController < ApplicationController
   end
 
   def new
-    set_gruop
+    @group = Group.new
+    @group_users = @group.users.includes(:users)
     @users_except_from_currentuser = User.except_from_currentuser(current_user)
   end
 
@@ -24,13 +25,14 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    set_gruop
+    # binding.pry
+    @group = Group.find(params[:id])
+    @group_users = @group.users
     @users_except_from_currentuser = User.except_from_currentuser(current_user)
   end
 
   def update
     if @group.update(group_params)
-      binding.pry
       redirect_to group_messages_path(@group), notice: 'グループを作成しました'
     else
       flash.now[:alert] = 'グループを作成できませんでした'
@@ -53,11 +55,6 @@ class GroupsController < ApplicationController
 
   def fetch_all_users
     @users = User.all
-  end
-
-  def set_gruop
-    @group = Group.new
-    @group_users = @group.users.includes(:users)
   end
 
 end

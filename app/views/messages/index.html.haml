@@ -21,12 +21,12 @@
     %ul.main__body__chat-wrap
       - if @messages
         - @messages.each do |message|
-          %li.chat-box
+          %li.chat-box{ 'data-message-id': "#{message.id}" }
             .chat-box__user
               %p.chat-box__user--name
                 = message.user.name
               %span.chat-box__user--time
-                = message.created_at
+                = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
             %p.chat-box__message
               - if message.message?
                 = message.message
